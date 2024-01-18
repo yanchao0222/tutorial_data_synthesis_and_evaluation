@@ -59,7 +59,7 @@ class Discriminator(tf.keras.Model):
 def train(modeln, parameter_dict):
     checkpoint_directory = "training_checkpoints_emrwgan_"+modeln
     # checkpoint_prefix = os.path.join(checkpoint_directory, "ckpt")
-    checkpoint_prefix = '/data/chao/syn_mimic/GAN_training/' + checkpoint_directory + "/ckpt-"
+    checkpoint_prefix = '/YOUR_LOCAL_PATH/GAN_training/' + checkpoint_directory + "/ckpt-"
     data = np.array(pd.read_csv(parameter_dict['training_data_path']).values).astype('float32')
 
     dataset_train = tf.data.Dataset.from_tensor_slices(data).shuffle(10000,reshuffle_each_iteration=True).batch(parameter_dict['batchsize'], drop_remainder=True)
@@ -71,7 +71,7 @@ def train(modeln, parameter_dict):
     discriminator = Discriminator(parameter_dict)
 
     checkpoint = tf.train.Checkpoint(generator=generator)
-    manager = tf.train.CheckpointManager(checkpoint, directory='/data/chao/syn_mimic/GAN_training/' + checkpoint_directory, max_to_keep=50)
+    manager = tf.train.CheckpointManager(checkpoint, directory='/YOUR_LOCAL_PATH/GAN_training/' + checkpoint_directory, max_to_keep=50)
 
     @tf.function
     def d_step(real):
