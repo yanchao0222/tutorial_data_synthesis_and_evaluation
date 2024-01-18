@@ -35,6 +35,8 @@ pip install -r requirements.txt
 ### Data preprocessing
 Before this step, one needs to download MIMIC-IV V2.0 data at https://physionet.org/content/mimiciv/2.0/ by completing the required application and training steps.
 
+Please run `data_extraction_and_preprocessing_github.ipynb file` step by step to prepare the dataset for the subsequent GAN training.
+
 
 ## Reference to cite
 
