@@ -76,7 +76,7 @@ def gen(modeln, parameter_dict):
     for col_name, i in zip(continuous_col_name_list, parameter_dict['continuous_feature_col_ind']):
         xmin, xmax = feature_range[col_name][0], feature_range[col_name][1]
         syn[:, i] = (1 - syn[:, i])*xmin + syn[:,i]*xmax
-    np.save('/data/chao/syn_mimic/GAN_training/syn/emrwgan_model_'+modeln+'_ckpt_'+parameter_dict['load_checkpoint_number']+'.npy', syn)
+    np.save('/YOUR_LOCAL_PATH/GAN_training/syn/emrwgan_model_'+modeln+'_ckpt_'+parameter_dict['load_checkpoint_number']+'.npy', syn)
 
 
 if __name__ == '__main__':
@@ -88,8 +88,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     parameter_dict = {}
-    parameter_dict['training_data_path'] = '/data/chao/syn_mimic/preprocessing/preprocessed_training_data.csv'
-    parameter_dict['feature_range_path'] = '/data/chao/syn_mimic/preprocessing/min_max_log.npy'
+    parameter_dict['training_data_path'] = '/YOUR_LOCAL_PATH/preprocessed_training_data.csv'
+    parameter_dict['feature_range_path'] = '/YOUR_LOCAL_PATH/min_max_log.npy'
     parameter_dict['continuous_feature_col_ind'] = [1456,1457,1458,1459]
     parameter_dict['batchsize'] = 4096
     parameter_dict['Z_DIM'] = 128
