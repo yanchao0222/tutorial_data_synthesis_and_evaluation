@@ -44,9 +44,9 @@ python GAN_training.py --gpu_id xx --model_id xx
 ```
 
 ### Synthetic data generation
-
+Generate synthetic data from a trained EMR-WGAN model by specifying gpu_id, model_id, and load_checkpoint (ie, checkpoint id).
 ```
-python GAN_generation.py --gpu_id xx --model_id xx
+python GAN_generation.py --gpu_id xx --model_id xx --load_checkpoint xx
 ```
 
 
