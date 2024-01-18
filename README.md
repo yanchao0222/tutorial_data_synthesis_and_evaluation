@@ -13,6 +13,17 @@ This package is supported for *Linux*. The package has been tested on the follow
 
 ```
 tensorflow
+pandas
+numpy
+pandas
+argparse
+matplotlib
+scipy
+sklearn
+lightgbm
+joblib
+shap
+requests
 ```
 ### Install all Python dependencies
 ```
