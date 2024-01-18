@@ -49,6 +49,10 @@ Generate synthetic data from a trained EMR-WGAN model by specifying gpu_id, mode
 python GAN_generation.py --gpu_id xx --model_id xx --load_checkpoint xx
 ```
 
+### Synthetic data evaluation
+
+Please run `utility_evaluation.ipynb file` step by step to evaluate the utility of the generated synthetic EHR datasets. 
+
 
 ## Reference to cite
 
