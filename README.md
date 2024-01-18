@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ## Descriptions of files
 
 ### Data preprocessing
-Before this step, one needs to download MIMIC-IV V2.0 data at https://physionet.org/content/mimiciv/2.0/.
+Before this step, one needs to download MIMIC-IV V2.0 data at https://physionet.org/content/mimiciv/2.0/ by completing the required application and training steps.
 
 
 ## Reference to cite
