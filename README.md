@@ -37,6 +37,18 @@ Before this step, one needs to download MIMIC-IV V2.0 data at https://physionet.
 
 Please run `data_extraction_and_preprocessing_github.ipynb file` step by step to prepare the dataset for the subsequent GAN training.
 
+### GAN training  
+Train an EMR-WGAN model by specifying gpu_id and model_id and then running
+```
+python GAN_training.py --gpu_id xx --model_id xx
+```
+
+### Synthetic data generation
+
+```
+python GAN_generation.py --gpu_id xx --model_id xx
+```
+
 
 ## Reference to cite
 
