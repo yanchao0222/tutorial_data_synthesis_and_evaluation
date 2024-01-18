@@ -1,5 +1,6 @@
 # A tutorial for generating and evaluating synthetic health data based on MIMIC-IV V2.0 dataset and EMR-WGAN.
-This repository is paired with the following tutorial paper.
+This repository is paired with the following tutorial paper:
+
 *Yan C, Zhang Z, Nyemba S, Li Z. Generating synthetic electronic health record data using generative adversarial networks: A tutorial.*
 
 ## System requirement
