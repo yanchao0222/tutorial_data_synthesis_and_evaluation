@@ -61,7 +61,8 @@ python GAN_generation.py --gpu_id xx --model_id xx --load_checkpoint xx
 
 ### Select the optimal synthetic dataset aligned with a target use case
 
-Please run 
+- Please run `rank_datasets.ipynb` step by step to select the best dataset generated previously. 
+- One needs to provide a set of weights to the metrics considered so that these weights reflect the degree to which a given use case values the evaluation results in each metric.
 
 ## Reference to cite
 
