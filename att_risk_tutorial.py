@@ -184,7 +184,7 @@ if __name__ == '__main__':
         syn_data_df = pd.DataFrame(syn_data, columns = col_name_list)
         positive_outcome_syn_data = syn_data_df[syn_data_df['DIE_1y'] == 1.0].values
         negative_outcome_syn_data = syn_data_df[syn_data_df['DIE_1y'] == 0.0].values
-        syn_data_df = np.concatenate((positive_outcome_syn_data[:14243,:], negative_outcome_syn_data[:112279,:]), axis=0)
+        syn_data_df = np.concatenate((positive_outcome_syn_data[:14243,:], negative_outcome_syn_data[:112279,:]), axis=0)  ## make sure the synthetic dataset has the same positive and negative records as those in the 70% real data (ie, the training dataset).
         syn_data_df = pd.DataFrame(syn_data_df, columns = col_name_list)
         fake = pd.DataFrame(syn_data_df, columns = col_name_list).values
         
