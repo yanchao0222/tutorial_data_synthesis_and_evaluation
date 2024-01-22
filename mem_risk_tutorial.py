@@ -6,7 +6,7 @@ import sys
 
 '''
 Usage: synthetic_risk_model_mem.py [model_id] [ckpt_id] [theta] [train_filename] [test_filename] [output_directory]
-Example: mem_risk_tutorial.py 21 best 5 /data/chao/syn_mimic/preprocessing/original_training_data.csv /data/chao/syn_mimic/preprocessing/original_testing_data.csv result/
+Example: mem_risk_tutorial.py 21 best 5 /YOUR_LOCAL_PATH/original_training_data.csv /YOUR_LOCAL_PATH/original_testing_data.csv result/
 1. [model_id]: model id. Default: 'real'.
 2. [ckpt_id]: checkpoint id of a generative model. Default: 'best'.
 3. [theta]: the threshold for the euclidean distance between two records. Default: '5'. Try: '10' and '20'.
@@ -46,8 +46,8 @@ if __name__ == '__main__':
     model_id = "real"
     ckpt_id = "best"
     theta = 5
-    original_patient_filename_train = '/data/chao/syn_mimic/preprocessing/original_training_data.csv'
-    original_patient_filename_test = '/data/chao/syn_mimic/preprocessing/original_testing_data.csv'
+    original_patient_filename_train = '/YOUR_LOCAL_PATH/original_training_data.csv'
+    original_patient_filename_test = '/YOUR_LOCAL_PATH/original_testing_data.csv'
     n_cont_col = 4  # number of columns for continuous features from the right
     Result_folder = "./result/"
     if not os.path.exists(Result_folder):
@@ -87,13 +87,13 @@ if __name__ == '__main__':
     if model_id == 'real':
         fake = train.copy()
     else:
-        syn_data = np.load(f'/data/chao/syn_mimic/GAN_training/syn/emrwgan_model_{model_id}_ckpt_{ckpt_id}.npy',allow_pickle=True)
+        syn_data = np.load(f'/YOUR_LOCAL_PATH/GAN_training/syn/emrwgan_model_{model_id}_ckpt_{ckpt_id}.npy',allow_pickle=True)
         for i in range(len(train[0])-4):
             syn_data[:,i] = (syn_data[:,i] >= 0.5)*1.0
         syn_data_df = pd.DataFrame(syn_data, columns = col_name_list)
         positive_outcome_syn_data = syn_data_df[syn_data_df['DIE_1y'] == 1.0].values
         negative_outcome_syn_data = syn_data_df[syn_data_df['DIE_1y'] == 0.0].values
-        syn_data_df = np.concatenate((positive_outcome_syn_data[:14243,:], negative_outcome_syn_data[:112279,:]), axis=0)
+        syn_data_df = np.concatenate((positive_outcome_syn_data[:14243,:], negative_outcome_syn_data[:112279,:]), axis=0)  ## make sure the synthetic dataset has the same number of positive and negative records than those in 70% real data (ie, training dataset)
         syn_data_df = pd.DataFrame(syn_data_df, columns = col_name_list)
         fake = pd.DataFrame(syn_data_df, columns = col_name_list).values
 
