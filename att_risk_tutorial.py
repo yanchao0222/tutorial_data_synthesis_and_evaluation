@@ -8,7 +8,7 @@ import sys
 
 '''
 Usage: synthetic_risk_model_attr.py [model_id] [ckpt_id] [x] [y] [original_filename] [output_directory]
-Example: att_risk_tutorial.py 21 best 0 8 /data/chao/syn_mimic/preprocessing/original_training_data.csv result/
+Example: att_risk_tutorial.py 21 best 0 8 /YOUR_LOCAL_PATH/original_training_data.csv result/
 1. [model_id]: model id. Default: 'real'.
 2. [ckpt_id]: checkpoint id of a generative model. Default: 'best'.
 3. [x]: 10 to x is the number of neighbours. A integer larger than -1. Default: '0'. Try: '1'.
@@ -136,7 +136,7 @@ if __name__ == '__main__':
     ckpt_id = "best"
     x = 0  # 10 to x is the number of neighbours [0, 1]
     y = 8  # 2 to y is the number of sensitive attributes used by the attacker [0, 11]
-    original_patient_filename = '/data/chao/syn_mimic/preprocessing/original_training_data.csv'
+    original_patient_filename = '/YOUR_LOCAL_PATH/original_training_data.csv'
     Result_folder = "./result/"
 
     start1 = time.time()
@@ -178,7 +178,7 @@ if __name__ == '__main__':
     if model_id == 'real':
         fake = real
     else:
-        syn_data = np.load(f'/data/chao/syn_mimic/GAN_training/syn/emrwgan_model_{model_id}_ckpt_{ckpt_id}.npy',allow_pickle=True)
+        syn_data = np.load(f'/YOUR_LOCAL_PATH/GAN_training/syn/emrwgan_model_{model_id}_ckpt_{ckpt_id}.npy',allow_pickle=True)
         for i in range(len(real[0])-4):
             syn_data[:,i] = (syn_data[:,i] >= 0.5)*1.0
         syn_data_df = pd.DataFrame(syn_data, columns = col_name_list)
